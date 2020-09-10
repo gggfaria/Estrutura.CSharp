@@ -25,5 +25,31 @@ namespace Estrutura.CSharp.LinkedList
                 currentNode = currentNode.Next;
             return currentNode;
         }
+
+        public bool Remove(TEntity value)
+        {
+            Node<TEntity> currentNode = First;
+            Node<TEntity> previousNode = null;
+            for (int i = 0; i < Size; i++)
+            {
+                if (currentNode.Value.Equals(value))
+                {
+                    Size--;
+                    if (previousNode == null)
+                        First = currentNode.Next;
+                    else if (currentNode.Next == null)
+                        Last = previousNode;
+                    else
+                        previousNode.Next = currentNode.Next;
+                    return true;
+
+                }
+                previousNode = currentNode;
+                currentNode = currentNode.Next;
+            }
+
+            return false;
+        }
+
     }
 }

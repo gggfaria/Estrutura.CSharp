@@ -7,22 +7,54 @@ namespace Estrutura.CSharp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("1 - LinkedList");
+            var inputOp = Console.ReadLine();
+            switch (inputOp)
+            {
+                case "1":
+                    ExecuteLinkedList();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private static void ExecuteLinkedList()
+        {
             Console.WriteLine("=================== Linked List =================== ");
             var linkedNomes = new LinkedList<string>();
+            Console.WriteLine("Add Values");
             linkedNomes.Add("Frodo");
             linkedNomes.Add("Sam");
             linkedNomes.Add("Pippin");
             linkedNomes.Add("Merry");
-            Console.WriteLine("Add Value");
             Console.WriteLine("List size: {0}", linkedNomes.Size);
             Console.WriteLine("List Fisrt: {0}", linkedNomes.First.Value);
             Console.WriteLine("List Last: {0}", linkedNomes.Last.Value);
-            Console.WriteLine("GetNodeAt(2) {0}", linkedNomes.GetNodeAt(2).Value);
-         
-            
-            
-            Console.WriteLine("=================== End =================== ");
 
+            for (int i = 0; i < linkedNomes.Size; i++)
+                Console.WriteLine("GetNodeAt({0}) {1}", i, linkedNomes.GetNodeAt(i).Value);
+
+            linkedNomes.Remove("Pippin");
+            Console.WriteLine("List Remove Pippin");
+
+            linkedNomes.Remove("Merry");
+            Console.WriteLine("List Remove Merry");
+
+            for (int i = 0; i < linkedNomes.Size; i++)
+                Console.WriteLine("GetNodeAt({0}) {1}", i, linkedNomes.GetNodeAt(i).Value);
+
+            linkedNomes.Add("Gollum");
+            Console.WriteLine("List Add Gollum");
+
+            for (int i = 0; i < linkedNomes.Size; i++)
+                Console.WriteLine("GetNodeAt({0}) {1}", i, linkedNomes.GetNodeAt(i).Value);
+
+            Console.WriteLine("List size: {0}", linkedNomes.Size);
+            Console.WriteLine("List Fisrt: {0}", linkedNomes.First.Value);
+            Console.WriteLine("List Last: {0}", linkedNomes.Last.Value);
+            Console.WriteLine("=================== End =================== ");
         }
     }
 }
