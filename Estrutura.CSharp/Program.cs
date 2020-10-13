@@ -15,6 +15,7 @@ namespace Estrutura.CSharp
                     ExecuteLinkedList();
                     break;
                 default:
+                    Console.WriteLine("Invalid");
                     break;
             }
 

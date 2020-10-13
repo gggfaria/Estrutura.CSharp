@@ -51,5 +51,10 @@ namespace Estrutura.CSharp.LinkedList
             return false;
         }
 
+        public IteratorLikedList<TEntity> Iterator()
+        {
+            return new IteratorLikedList<TEntity>(First);
+        }
+
     }
 }
