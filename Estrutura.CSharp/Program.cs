@@ -34,6 +34,8 @@ namespace Estrutura.CSharp
             Console.WriteLine("List Fisrt: {0}", linkedNomes.First.Value);
             Console.WriteLine("List Last: {0}", linkedNomes.Last.Value);
 
+            WriteLinkedListIterator(linkedNomes);
+
             for (int i = 0; i < linkedNomes.Size; i++)
                 Console.WriteLine("GetNodeAt({0}) {1}", i, linkedNomes.GetNodeAt(i).Value);
 
@@ -52,10 +54,24 @@ namespace Estrutura.CSharp
             for (int i = 0; i < linkedNomes.Size; i++)
                 Console.WriteLine("GetNodeAt({0}) {1}", i, linkedNomes.GetNodeAt(i).Value);
 
+
+
             Console.WriteLine("List size: {0}", linkedNomes.Size);
             Console.WriteLine("List Fisrt: {0}", linkedNomes.First.Value);
             Console.WriteLine("List Last: {0}", linkedNomes.Last.Value);
             Console.WriteLine("=================== End =================== ");
+        }
+
+        private static void WriteLinkedListIterator(LinkedList<string> linkedNomes)
+        {
+            Console.WriteLine("Iterator teste");
+            IteratorLikedList<string> iterator = linkedNomes.Iterator();
+            while (iterator.HasNext())
+            {
+                Console.WriteLine("Get node iterator {0}", iterator.Node.Value);
+                iterator.GetNext();
+            }
+            Console.WriteLine("Get node iterator last {0}", iterator.Node.Value);
         }
     }
 }

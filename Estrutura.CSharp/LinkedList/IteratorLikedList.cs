@@ -1,20 +1,23 @@
-﻿namespace Estrutura.CSharp.LinkedList
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Estrutura.CSharp.LinkedList
 {
     class IteratorLikedList<TEntity>
     {
-        private Node<TEntity> _node;
         public IteratorLikedList(Node<TEntity> node)
         {
-            _node = node;
+            Node = node;
         }
 
         public bool HasNext() =>
-             _node?.Next != null;
+             Node?.Next != null;
+
+        public Node<TEntity> Node { get; private set; }
 
         public Node<TEntity> GetNext()
         {
-            _node = _node.Next;
-            return _node.Next;
+            Node = Node.Next;
+            return Node.Next;
         }
     }
 }
