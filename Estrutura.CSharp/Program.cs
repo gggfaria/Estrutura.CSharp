@@ -1,5 +1,6 @@
 ﻿using Estrutura.CSharp.LinkedList;
 using System;
+using Estrutura.CSharp.Sort;
 
 namespace Estrutura.CSharp
 {
@@ -8,17 +9,37 @@ namespace Estrutura.CSharp
         static void Main(string[] args)
         {
             Console.WriteLine("1 - LinkedList");
+            Console.WriteLine("2 - BubbleSort");
             var inputOp = Console.ReadLine();
             switch (inputOp)
             {
                 case "1":
                     ExecuteLinkedList();
                     break;
+                case "2":
+                    ExecuteBubbleSort();
+
+                    break;
                 default:
                     Console.WriteLine("Invalid");
                     break;
             }
 
+        }
+
+        private static void ExecuteBubbleSort()
+        {
+            int[] array = new int[10];
+            var random = new Random();
+            for (int i = 0; i < array.Length; i++)
+                array[i] = random.Next(1, 100);
+            Console.WriteLine("Print all numbers array");
+            foreach (var item in array)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("Print all numbers sorted array");
+            foreach (var item in array.Sort())
+                Console.WriteLine($"{item}");
         }
 
         private static void ExecuteLinkedList()
